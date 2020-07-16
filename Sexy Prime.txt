@@ -1,0 +1,51 @@
+N=int(input())
+def prime_in_between(n):           #function to obtain prime number from 1 to Given range(inclusive).
+    l=[True for i in  range(n+1)]
+    res=[]
+    l[0]=False
+    l[1]=False
+    for i in range(len(l)):
+        if l[i]==True:
+            for j in range(2*i,n+1,i):
+                l[j]=False
+    for i in range(len(l)):
+        if l[i]==True:
+            res.append(i)
+    return res
+            
+def differnce(l):                   # funtion that return pairs from a list whose difference is 6.
+    for i in range(len(l)):
+        lower,upper=i,(len(l)-1)
+        while(lower!=upper):
+            diff=l[upper]-l[lower]
+            if diff>6:
+                upper-=1
+            elif diff==6:
+                print(l[lower],l[upper])
+                break
+            else:
+                break
+                
+result=prime_in_between(N)
+print(result)
+ans=differnce(result)
+
+#Input:
+100
+#Output:
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+5 11
+7 13
+11 17
+13 19
+17 23
+23 29
+31 37
+37 43
+41 47
+47 53
+53 59
+61 67
+67 73
+73 79
+83 89
